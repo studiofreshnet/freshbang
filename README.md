@@ -1,2 +1,2 @@
-# freshbang
-Universe started with the big bang. Every SFN project should start with the fresh bang.
+# The Fresh Bang (SFN boilerplate)
+The Universe started with The Big Bang. So every SFN project should start with The Fresh Bang.
