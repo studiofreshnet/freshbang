@@ -1,0 +1,61 @@
+// Display and position definitions
+// --------------------------------
+
+.flex {
+	display: flex;
+}
+
+.inline-flex {
+	display: inline-flex;
+}
+
+.block {
+	display: block;
+}
+
+.inline {
+	display: inline;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.table {
+	display: table;
+}
+
+.hidden {
+	display: none;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+// --------------------------------
+
+// Text aligns
+// --------------------------------
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+// --------------------------------
+
+// Animations
+// --------------------------------
+.trans {
+	transition: all 300ms ease-in-out;
+}
+// --------------------------------

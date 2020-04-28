@@ -4,46 +4,77 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import babel from 'gulp-babel';
 import cleanCSS from 'gulp-clean-css';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import uglify from 'gulp-uglify-es';
 import rename from 'gulp-rename';
 import del from 'del';
 
-const basePath = 'assets/less';
+sass.compiler = require('node-sass');
+
+const assetsPath = './www/assets';
 
 const paths = {
-    styles: {
-        document: {
-            main: 'www/assets/less/document/_main.less',
-            src: 'www/assets/less/document/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-        layout: {
-            main: 'www/assets/less/layout/_main.less',
-            src: 'www/assets/less/layout/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-        core: {
-            main: 'www/assets/less/core/_main.less',
-            src: 'www/assets/less/core/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-        components: {
-            main: 'www/assets/less/components/_main.less',
-            src: 'www/assets/less/components/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-        ui: {
-            main: 'www/assets/less/ui/_main.less',
-            src: 'www/assets/less/ui/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-        vendor: {
-            main: 'www/assets/less/vendor/_main.less',
-            src: 'www/assets/less/vendor/**/*.less',
-            dest: 'www/assets/dist/css/'
-        },
-    },
-    scripts: {
-        src: 'www/assets/js/**/*.js',
-        dest: 'www/assets/dist/js/'
-    }
+	styles: {
+		vendor: {
+			main: assetsPath + '/scss/vendor/_main.scss',
+			src: assetsPath + '/scss/vendor/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		},
+		document: {
+			main: assetsPath + '/scss/document/_main.scss',
+			src: assetsPath + '/scss/document/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		},
+		core: {
+			main: assetsPath + '/scss/core/main.scss',
+			src: assetsPath + '/scss/core/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		},
+		layout: {
+			main: assetsPath + '/scss/layout/_main.scss',
+			src: assetsPath + '/scss/layout/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		},
+		components: {
+			main: assetsPath + '/scss/components/_main.scss',
+			src: assetsPath + '/scss/components/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		},
+		ui: {
+			main: assetsPath + '/scss/ui/_main.scss',
+			src: assetsPath + '/scss/ui/**/*.scss',
+			dest: assetsPath + '/dist/css/'
+		}
+	},
+	scripts: {
+		src: assetsPath + '/js/**/*.js',
+		dest: assetsPath + '/dist/js/'
+	}
 };
+
+export const clean = () => del([ assetsPath + '/dist' ]);
+
+export function coreStyles() {
+	return gulp.src(paths.styles.core.main)
+		.pipe(sass())
+		.pipe(sourcemaps.init())
+			.pipe(sourcemaps.identityMap())
+			.pipe(sourcemaps.write(''))
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '4-core',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.core.dest));
+}
+
+function watchFiles() {
+	gulp.watch(paths.styles.core.src, coreStyles);
+}
+
+export { watchFiles as watch };
+
+const build = gulp.series(clean, gulp.parallel(coreStyles));
+
+export default build;
