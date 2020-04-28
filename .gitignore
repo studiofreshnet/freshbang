@@ -4,3 +4,6 @@
 
 # others
 /.idea
+
+# distiled styles and scripts
+/www/assets/dist/
