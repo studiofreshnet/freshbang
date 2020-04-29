@@ -1,6 +1,5 @@
 // Display and position definitions
 // --------------------------------
-
 .flex {
 	display: flex;
 }
@@ -57,5 +56,16 @@
 // --------------------------------
 .trans {
 	transition: all 300ms ease-in-out;
+}
+// --------------------------------
+
+// Text sizes
+// --------------------------------
+.text-large {
+	font-size: 125%;
+}
+
+.text-small {
+	font-size: 75%;
 }
 // --------------------------------
