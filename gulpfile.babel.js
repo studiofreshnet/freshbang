@@ -22,7 +22,7 @@ const paths = {
 			dest: assetsPath + '/dist/css/'
 		},
 		document: {
-			main: assetsPath + '/scss/document/_main.scss',
+			main: assetsPath + '/scss/document/main.scss',
 			src: assetsPath + '/scss/document/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		},
@@ -55,6 +55,20 @@ const paths = {
 
 export const clean = () => del([ assetsPath + '/dist' ]);
 
+export function documentStyles() {
+	return gulp.src(paths.styles.document.main)
+		.pipe(sass())
+		.pipe(sourcemaps.init())
+			.pipe(sourcemaps.identityMap())
+			.pipe(sourcemaps.write(''))
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '3-document',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.document.dest));
+}
+
 export function coreStyles() {
 	return gulp.src(paths.styles.core.main)
 		.pipe(sass())
@@ -70,11 +84,12 @@ export function coreStyles() {
 }
 
 function watchFiles() {
+	gulp.watch(paths.styles.core.src, documentStyles);
 	gulp.watch(paths.styles.core.src, coreStyles);
 }
 
 export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(coreStyles));
+const build = gulp.series(clean, gulp.parallel(documentStyles, coreStyles));
 
 export default build;
