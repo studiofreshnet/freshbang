@@ -1,9 +1,26 @@
+# app folders
+/log/*
+!/log/.htaccess
+/temp/*
+!/temp/.htaccess
+!/temp/sessions/
+/temp/sessions/*
+!/temp/sessions/.htaccess
+/vendor/*
+!/vendor/.htaccess
+
+# local configs
+/app/config/local.neon
+
 # npm
 /node_modules
 /package-lock.json
 
 # others
 /.idea
+*.bak
+.~lock.*
+.DS_Store
 
 # distiled styles and scripts
 /www/assets/dist/
