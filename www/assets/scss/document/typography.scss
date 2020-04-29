@@ -6,28 +6,28 @@ body {
 	line-height: $base-line-height;
 }
 
+h1, h2, h3, h4, h5 {
+	margin-bottom: 0.5em;
+}
+
 h1 {
 	font-size: $h1-font-size;
 	line-height: 1.25;
-	margin-bottom: 3rem;
 }
 
 h2 {
 	font-size: $h2-font-size;
 	line-height: 1.125;
-	margin-bottom: 1.5rem;
 }
 
 h3 {
 	font-size: $h3-font-size;
 	line-height: 1.1;
-	margin-bottom: 1.25rem;
 }
 
 h4 {
 	font-size: $h4-font-size;
 	line-height: 1.05;
-	margin-bottom: 1rem;
 }
 
 p {
@@ -36,5 +36,4 @@ p {
 
 strong {
 	font-weight: 600;
-	color: inherit;
 }
