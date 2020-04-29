@@ -63,7 +63,7 @@ export function documentStyles() {
 			.pipe(sourcemaps.write(''))
 		.pipe(cleanCSS())
 		.pipe(rename({
-			basename: '3-document',
+			basename: '2-document',
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(paths.styles.document.dest));
@@ -77,7 +77,7 @@ export function coreStyles() {
 			.pipe(sourcemaps.write(''))
 		.pipe(cleanCSS())
 		.pipe(rename({
-			basename: '4-core',
+			basename: '3-core',
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(paths.styles.core.dest));
