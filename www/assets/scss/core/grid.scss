@@ -1,0 +1,17 @@
+.row {
+	display: flex;
+}
+
+@mixin make-col($number-of-cols, $offset: 0) {
+	.col {
+		width: calc(100%/#{$number-of-cols});
+	}
+
+	.col__inner {
+		width: calc(100% - #{$offset});
+	}
+}
+
+.row--3c {
+	@include make-col(3, 5rem);
+}
