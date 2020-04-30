@@ -89,14 +89,29 @@ export function coreStyles() {
 		.pipe(gulp.dest(paths.styles.core.dest));
 }
 
+export function componentStyles() {
+	return gulp.src(paths.styles.components.main)
+		.pipe(sass())
+		.pipe(sourcemaps.init())
+			.pipe(sourcemaps.identityMap())
+			.pipe(sourcemaps.write(''))
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '4-components',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.components.dest));
+}
+
 function watchFiles() {
 	gulp.watch(paths.styles.vendor.src, vendorStyles);
 	gulp.watch(paths.styles.document.src, documentStyles);
 	gulp.watch(paths.styles.core.src, coreStyles);
+	gulp.watch(paths.styles.components.src, componentStyles);
 }
 
 export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles));
+const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles));
 
 export default build;

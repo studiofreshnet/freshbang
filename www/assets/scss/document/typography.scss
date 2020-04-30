@@ -37,3 +37,15 @@ p {
 strong {
 	font-weight: 600;
 }
+
+a {
+	color: inherit;
+	@if ($underlined-links == true) {
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	} @else {
+		text-decoration: none;
+	}
+}

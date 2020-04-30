@@ -3,12 +3,12 @@
 }
 
 @mixin make-col($number-of-cols, $offset: 0) {
-	.col {
-		width: calc((100%/#{$number-of-cols}) - #{$offset});
-		margin-right: $offset;
-	}
+	width: calc((100%/#{$number-of-cols}) - #{$offset});
+	margin-right: $offset;
 }
 
 .row--3c {
-	@include make-col(3, 5rem);
+	.col {
+		@include make-col(3, 5rem);
+	}
 }
