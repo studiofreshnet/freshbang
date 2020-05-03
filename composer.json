@@ -1,18 +1,16 @@
 {
-	"name": "nette/nette",
-	"type": "library",
-	"description": "👪 Nette Framework - innovative framework for fast and easy development of secured web applications in PHP (metapackage)",
-	"keywords": ["framework", "mvc", "metapackage"],
-	"homepage": "https://nette.org",
-	"license": ["BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
+	"name": "studiofreshnet/freshbang",
+	"type": "project",
+	"description": "The Fresh Bang SFN boilerplate",
+	"license": [ "proprietary" ],
 	"authors": [
 		{
-			"name": "David Grudl",
-			"homepage": "https://davidgrudl.com"
+			"name": "Roman Pistek",
+			"homepage": "https://www.freshnet.cz"
 		},
 		{
-			"name": "Nette Community",
-			"homepage": "https://nette.org/contributors"
+			"name": "David Malcat",
+			"homepage": "https://www.freshnet.cz"
 		}
 	],
 	"require": {
@@ -36,8 +34,13 @@
 		"latte/latte": "^2.5",
 		"tracy/tracy": "^2.6"
 	},
+	"require-dev": {
+		"roave/security-advisories": "dev-master"
+	},
 	"autoload": {
-		"classmap": ["app/"]
+		"psr-4": {
+			"FreshBang//": "app/"
+		}
 	},
 	"minimum-stability": "dev",
 	"extra": {
