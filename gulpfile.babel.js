@@ -17,12 +17,12 @@ const assetsPath = './www/assets';
 const paths = {
 	styles: {
 		vendor: {
-			main: assetsPath + '/scss/vendor/_main.scss',
+			main: assetsPath + '/scss/vendor/main.scss',
 			src: assetsPath + '/scss/vendor/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		},
 		document: {
-			main: assetsPath + '/scss/document/_main.scss',
+			main: assetsPath + '/scss/document/main.scss',
 			src: assetsPath + '/scss/document/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		},
@@ -31,18 +31,13 @@ const paths = {
 			src: assetsPath + '/scss/core/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		},
-		layout: {
-			main: assetsPath + '/scss/layout/_main.scss',
-			src: assetsPath + '/scss/layout/**/*.scss',
-			dest: assetsPath + '/dist/css/'
-		},
 		components: {
-			main: assetsPath + '/scss/components/_main.scss',
+			main: assetsPath + '/scss/components/main.scss',
 			src: assetsPath + '/scss/components/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		},
 		ui: {
-			main: assetsPath + '/scss/ui/_main.scss',
+			main: assetsPath + '/scss/ui/main.scss',
 			src: assetsPath + '/scss/ui/**/*.scss',
 			dest: assetsPath + '/dist/css/'
 		}
@@ -55,6 +50,31 @@ const paths = {
 
 export const clean = () => del([ assetsPath + '/dist' ]);
 
+export function vendorStyles() {
+	return gulp.src(paths.styles.vendor.main)
+		.pipe(sass())
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '1-vendor',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.vendor.dest));
+}
+
+export function documentStyles() {
+	return gulp.src(paths.styles.document.main)
+		.pipe(sass())
+		.pipe(sourcemaps.init())
+			.pipe(sourcemaps.identityMap())
+			.pipe(sourcemaps.write(''))
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '2-document',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.document.dest));
+}
+
 export function coreStyles() {
 	return gulp.src(paths.styles.core.main)
 		.pipe(sass())
@@ -63,18 +83,35 @@ export function coreStyles() {
 			.pipe(sourcemaps.write(''))
 		.pipe(cleanCSS())
 		.pipe(rename({
-			basename: '4-core',
+			basename: '3-core',
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(paths.styles.core.dest));
 }
 
+export function componentStyles() {
+	return gulp.src(paths.styles.components.main)
+		.pipe(sass())
+		.pipe(sourcemaps.init())
+			.pipe(sourcemaps.identityMap())
+			.pipe(sourcemaps.write(''))
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '4-components',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.styles.components.dest));
+}
+
 function watchFiles() {
+	gulp.watch(paths.styles.vendor.src, vendorStyles);
+	gulp.watch(paths.styles.document.src, documentStyles);
 	gulp.watch(paths.styles.core.src, coreStyles);
+	gulp.watch(paths.styles.components.src, componentStyles);
 }
 
 export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(coreStyles));
+const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles));
 
 export default build;
