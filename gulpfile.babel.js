@@ -63,43 +63,40 @@ export function vendorStyles() {
 
 export function documentStyles() {
 	return gulp.src(paths.styles.document.main)
-		.pipe(sass())
 		.pipe(sourcemaps.init())
-			.pipe(sourcemaps.identityMap())
-			.pipe(sourcemaps.write(''))
+		.pipe(sass())
 		.pipe(cleanCSS())
 		.pipe(rename({
 			basename: '2-document',
 			suffix: '.min'
 		}))
+		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(paths.styles.document.dest));
 }
 
 export function coreStyles() {
 	return gulp.src(paths.styles.core.main)
-		.pipe(sass())
 		.pipe(sourcemaps.init())
-			.pipe(sourcemaps.identityMap())
-			.pipe(sourcemaps.write(''))
+		.pipe(sass())
 		.pipe(cleanCSS())
 		.pipe(rename({
 			basename: '3-core',
 			suffix: '.min'
 		}))
+		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(paths.styles.core.dest));
 }
 
 export function componentStyles() {
 	return gulp.src(paths.styles.components.main)
-		.pipe(sass())
 		.pipe(sourcemaps.init())
-			.pipe(sourcemaps.identityMap())
-			.pipe(sourcemaps.write(''))
+		.pipe(sass())
 		.pipe(cleanCSS())
 		.pipe(rename({
 			basename: '4-components',
 			suffix: '.min'
 		}))
+		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(paths.styles.components.dest));
 }
 
