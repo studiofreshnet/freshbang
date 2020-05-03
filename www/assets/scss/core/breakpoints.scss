@@ -1,0 +1,76 @@
+// Breakpoints
+$min375px: "screens and (min-width: 375px)";
+$max375px: "screens and (max-width: 375px)";
+
+$min640px: "screens and (min-width: 640px)";
+$max640px: "screens and (max-width: 640px)";
+
+$min768px: "screens and (min-width: 768px)";
+$max768px: "screens and (max-width: 768px)";
+
+$min940px: "screens and (min-width: 940px)";
+$max940px: "screens and (max-width: 940px)";
+
+$min1024px: "screens and (min-width: 1024px)";
+$max1024px: "screens and (max-width: 1024px)";
+
+
+@mixin min375 {
+	@media (min-width: #{$min375px}) {
+		@content;
+	}
+}
+
+@mixin max375 {
+	@media (max-width: #{$max375px}) {
+		@content;
+	}
+}
+
+@mixin min640px {
+	@media (min-width: #{$min640px}) {
+		@content;
+	}
+}
+
+@mixin max640px {
+	@media (max-width: #{$max640px}) {
+		@content;
+	}
+}
+
+@mixin min768px {
+	@media (min-width: #{$min768px}) {
+		@content;
+	}
+}
+
+@mixin max768px {
+	@media (max-width: #{$max768px}) {
+		@content;
+	}
+}
+
+@mixin min940px {
+	@media (min-width: #{$min940px}) {
+		@content;
+	}
+}
+
+@mixin max940px {
+	@media (max-width: #{$max940px}) {
+		@content;
+	}
+}
+
+@mixin min1024px {
+	@media (min-width: #{$min1024px}) {
+		@content;
+	}
+}
+
+@mixin max1024px {
+	@media (max-width: #{$max1024px}) {
+		@content;
+	}
+}
