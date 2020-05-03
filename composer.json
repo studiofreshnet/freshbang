@@ -42,10 +42,5 @@
 			"FreshBang\\": "app/"
 		}
 	},
-	"minimum-stability": "dev",
-	"extra": {
-		"branch-alias": {
-			"dev-master": "3.0-dev"
-		}
-	}
+	"minimum-stability": "dev"
 }
