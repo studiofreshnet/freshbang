@@ -39,7 +39,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"FreshBang//": "app/"
+			"FreshBang\\": "app/"
 		}
 	},
 	"minimum-stability": "dev",
