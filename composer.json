@@ -1,46 +1,34 @@
 {
-	"name": "studiofreshnet/freshbang",
+	"name": "nette/web-project",
+	"description": "Nette: Standard Web Project",
+	"keywords": ["nette"],
 	"type": "project",
-	"description": "The Fresh Bang SFN boilerplate",
-	"license": [ "proprietary" ],
-	"authors": [
-		{
-			"name": "Roman Pistek",
-			"homepage": "https://www.freshnet.cz"
-		},
-		{
-			"name": "David Malcat",
-			"homepage": "https://www.freshnet.cz"
-		}
-	],
+	"license": ["MIT", "BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"require": {
+		"php": ">= 7.1",
 		"nette/application": "^3.0",
 		"nette/bootstrap": "^3.0",
 		"nette/caching": "^3.0",
-		"nette/component-model": "^3.0",
 		"nette/database": "^3.0",
 		"nette/di": "^3.0",
 		"nette/finder": "^2.5",
 		"nette/forms": "^3.0",
 		"nette/http": "^3.0",
 		"nette/mail": "^3.0",
-		"nette/neon": "^3.0",
-		"nette/php-generator": "^3.0",
 		"nette/robot-loader": "^3.0",
-		"nette/safe-stream": "^2.4",
 		"nette/security": "^3.0",
-		"nette/tokenizer": "^3.0",
 		"nette/utils": "^3.0",
 		"latte/latte": "^2.5",
 		"tracy/tracy": "^2.6"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-master"
+		"nette/tester": "^2.0",
+		"symfony/thanks": "^1"
 	},
 	"autoload": {
 		"psr-4": {
-			"FreshBang\\": "app/"
+			"App\\": "app"
 		}
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "stable"
 }
