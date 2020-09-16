@@ -4,7 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Freshbang</title>
+
+	{* CSS files *}
+	<link rel="stylesheet" href="{$basePath}/assets/dist/css/1-vendor.min.css">
+	<link rel="stylesheet" href="{$basePath}/assets/dist/css/2-document.min.css">
+	<link rel="stylesheet" href="{$basePath}/assets/dist/css/3-core.min.css">
+	<link rel="stylesheet" href="{$basePath}/assets/dist/css/4-components.min.css">
+
 </head>
 
 <body>
