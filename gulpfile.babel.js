@@ -100,15 +100,25 @@ export function componentStyles() {
 		.pipe(gulp.dest(paths.styles.components.dest));
 }
 
+export function scripts() {
+	return gulp.src(paths.scripts.src)
+		.pipe(babel({compact: false}))
+		.pipe(uglify())
+		.pipe(rename({suffix: '.min'}))
+		//.pipe(concat('main.min.js'))
+		.pipe(gulp.dest(paths.scripts.dest));
+}
+
 function watchFiles() {
 	gulp.watch(paths.styles.vendor.src, vendorStyles);
 	gulp.watch(paths.styles.document.src, documentStyles);
 	gulp.watch(paths.styles.core.src, coreStyles);
 	gulp.watch(paths.styles.components.src, componentStyles);
+	gulp.watch(paths.scripts.src, scripts);
 }
 
 export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles));
+const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles, scripts));
 
 export default build;
