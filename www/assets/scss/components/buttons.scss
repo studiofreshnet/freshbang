@@ -1,4 +1,5 @@
 @import '../config';
+@import '../core/breakpoints';
 
 .button {
 	display: inline-flex;
@@ -8,4 +9,7 @@
 	line-height: 1.25;
 	border-radius: $button-radius;
 	cursor: pointer;
+	@include max940px {
+		display: block;
+	}
 }

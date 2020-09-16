@@ -1,76 +1,80 @@
 // Breakpoints
-$min375px: "screens and (min-width: 375px)";
-$max375px: "screens and (max-width: 375px)";
-
-$min640px: "screens and (min-width: 640px)";
-$max640px: "screens and (max-width: 640px)";
-
-$min768px: "screens and (min-width: 768px)";
-$max768px: "screens and (max-width: 768px)";
-
-$min940px: "screens and (min-width: 940px)";
-$max940px: "screens and (max-width: 940px)";
-
-$min1024px: "screens and (min-width: 1024px)";
-$max1024px: "screens and (max-width: 1024px)";
+$screen375px: "375px";
+$screen480px: "480px";
+$screen640px: "640px";
+$screen768px: "768px";
+$screen940px: "940px";
+$screen1024px: "1024px";
 
 
-@mixin min375 {
-	@media (min-width: #{$min375px}) {
+@mixin min375px {
+	@media screen and (min-width: #{$screen375px}) {
 		@content;
 	}
 }
 
-@mixin max375 {
-	@media (max-width: #{$max375px}) {
+@mixin max375px {
+	@media screen and (max-width: #{$screen375px}) {
+		@content;
+	}
+}
+
+@mixin min480px {
+	@media screen and (min-width: #{$screen480px}) {
+		@content;
+	}
+}
+
+@mixin max480px {
+	@media screen and (max-width: #{$screen480px}) {
 		@content;
 	}
 }
 
 @mixin min640px {
-	@media (min-width: #{$min640px}) {
+	@media screen and (min-width: #{$screen640px}) {
 		@content;
 	}
 }
 
 @mixin max640px {
-	@media (max-width: #{$max640px}) {
+	@media screen and (max-width: #{$screen640px}) {
 		@content;
 	}
 }
 
 @mixin min768px {
-	@media (min-width: #{$min768px}) {
+	@media screen and (min-width: #{$screen768px}) {
 		@content;
 	}
 }
 
 @mixin max768px {
-	@media (max-width: #{$max768px}) {
+	@media screen and (max-width: #{$screen768px}) {
 		@content;
 	}
 }
 
 @mixin min940px {
-	@media (min-width: #{$min940px}) {
+	@media screen and (min-width: #{$screen940px}) {
 		@content;
 	}
 }
 
 @mixin max940px {
-	@media (max-width: #{$max940px}) {
+	@media screen and (max-width: #{$screen940px}) {
 		@content;
 	}
 }
 
 @mixin min1024px {
-	@media (min-width: #{$min1024px}) {
+	@media screen and (min-width: #{$screen1024px}) {
 		@content;
 	}
 }
 
 @mixin max1024px {
-	@media (max-width: #{$max1024px}) {
+	@media screen and (max-width: #{$screen1024px}) {
 		@content;
 	}
 }
