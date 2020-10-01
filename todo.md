@@ -1,6 +1,4 @@
 # Freshbang todo list
-- translate all error pages
-- add default error pages style
 - add version latte filter
 - add default checkbox style
 - deployer config
