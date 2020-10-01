@@ -15,6 +15,12 @@
 		}
 	}
 
+	.form__group--1c {
+		.form__control {
+			width: 100%;
+		}
+	}
+
 	.form__control {
 		width: 100%;
 	}
@@ -31,6 +37,9 @@
 		line-height: $base-line-height;
 		color: $form-input-text-color;
 		background-color: $form-input-background-color;
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.form__textarea {
