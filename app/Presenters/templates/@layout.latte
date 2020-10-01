@@ -13,15 +13,18 @@
 	<link rel="stylesheet" href="{$basePath}/assets/dist/css/4-components.min.css">
 	<link rel="stylesheet" href="{$basePath}/assets/dist/css/5-ui.min.css">
 
+	{* JS files *}
+
+
 </head>
 
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	{include 'includes/header.latte'}
+
 	{include content}
 
-	{block scripts}
-	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-	{/block}
+	{block scripts}{/block}
 </body>
 </html>
