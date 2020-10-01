@@ -12,4 +12,12 @@
 	.navigation__item {
 		margin: 0 1rem;
 	}
+
+	.navigation__item--active {
+		.navigation__link {
+			text-decoration: none;
+		}
+	}
+
+	.navigation__link {}
 }
