@@ -100,6 +100,19 @@ export function componentStyles() {
 		.pipe(gulp.dest(paths.styles.components.dest));
 }
 
+export function uiStyles() {
+	return gulp.src(paths.styles.ui.main)
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(cleanCSS())
+		.pipe(rename({
+			basename: '5-ui',
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write(''))
+		.pipe(gulp.dest(paths.styles.ui.dest));
+}
+
 export function scripts() {
 	return gulp.src(paths.scripts.src)
 		.pipe(babel({compact: false}))
@@ -114,11 +127,12 @@ function watchFiles() {
 	gulp.watch(paths.styles.document.src, documentStyles);
 	gulp.watch(paths.styles.core.src, coreStyles);
 	gulp.watch(paths.styles.components.src, componentStyles);
+	gulp.watch(paths.styles.ui.src, uiStyles);
 	gulp.watch(paths.scripts.src, scripts);
 }
 
 export { watchFiles as watch };
 
-const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles, scripts));
+const build = gulp.series(clean, gulp.parallel(vendorStyles, documentStyles, coreStyles, componentStyles, uiStyles, scripts));
 
 export default build;

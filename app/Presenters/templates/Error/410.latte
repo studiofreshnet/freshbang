@@ -1,6 +1,16 @@
 {block content}
-<h1 n:block=title>Page Not Found</h1>
 
-<p>The page you requested has been taken off the site. We apologize for the inconvenience.</p>
+<div class="errorPage">
+	<div class="errorPage__wrapper wrapper">
+		<h1 n:block=title>Stránka nenalezena</h1>
 
-<p><small>error 410</small></p>
+		<p class="errorPage__copy">
+			Stránka, kterou hledáte, byla z webu odstraněna. Omlouváme se za komplikace. <br>
+			<a n:href="Homepage:">Pokračujte na úvodní stránku</a>
+		</p>
+
+		<p class="errorPage__copy">
+			<small>error 410</small>
+		</p>
+	</div>
+</div>
