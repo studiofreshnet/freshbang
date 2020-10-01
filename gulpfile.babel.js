@@ -43,7 +43,11 @@ const paths = {
 		}
 	},
 	scripts: {
-		src: assetsPath + '/js/**/*.js',
+		src: [
+			assetsPath + '/js/libs/jquery-3.5.1.js',
+			assetsPath + '/js/libs/svg.js',
+			assetsPath + '/js/main.js'
+		],
 		dest: assetsPath + '/dist/js/'
 	}
 };
