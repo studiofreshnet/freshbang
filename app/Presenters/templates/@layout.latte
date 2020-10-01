@@ -1,3 +1,6 @@
+{define fullTitle}{ifset #metaTitle}{include metaTitle|striptags|trim|strip}{else}Freshbang repository{/ifset}{/define}
+{define fullDesc}{ifset #metaDescription}{include metaDescription|striptags|trim|strip}{else}The Universe started with The Big Bang. So every SFN project should start with The Fresh Bang.{/ifset}{/define}
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -7,14 +10,14 @@
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Freshbang</title>
 
 	{* OG things *}
-	<meta property="og:title" content="Freshbang" />
+	<meta property="og:title" content="{include fullTitle}" />
 	<meta property="og:url" content="{plink //this}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="{$baseUrl}/assets/images/ogimage-.png" />
 	<meta property="og:image:width" content="600" />
 	<meta property="og:image:height" content="315" />
-	<meta property="og:site_name" content="Freshbang repository" />
-	<meta property="og:description" content="The Universe started with The Big Bang. So every SFN project should start with The Fresh Bang." />
+	<meta property="og:site_name" content="{include fullTitle}" />
+	<meta property="og:description" content="{include fullDesc}" />
 	<meta property="og:locale" content="cs_CZ" />
 
 	{* CSS files *}
