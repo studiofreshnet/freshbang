@@ -5,9 +5,10 @@
 <html lang="cs">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Freshbang</title>
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+	<meta name="description" content="{include fullDesc}">
 
 	{* OG things *}
 	<meta property="og:title" content="{include fullTitle}" />
@@ -41,7 +42,11 @@
 
 	{include 'includes/header.latte'}
 
-	{include content}
+	<main class="content">
+		{include content}
+	</main>
+
+	{include 'includes/footer.latte'}
 
 	{block scripts}{/block}
 </body>
